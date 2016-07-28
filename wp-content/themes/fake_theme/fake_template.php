@@ -148,9 +148,6 @@ if( have_rows('fake_theme') ):
     	        	</div>
 
         	        <?php elseif( get_row_layout() == 'album_display' ): ?>
-        	        	<?php 
-        	        		$dates_img =  get_sub_field('dates_background')['url'];
-        	        	?>
         	        	<div class="album_display_container" style="background-image: url('<?php echo $dates_img; ?>')">
         		    		<div class="container">
         		        		<div class="albums">
@@ -182,7 +179,61 @@ if( have_rows('fake_theme') ):
         		        	</div>  
         		        </div>
 
+	                <?php elseif( get_row_layout() == 'gallerie_display' ): ?>
 
+	                	<div class="gallery_display_container">
+	        	    		<div class="container">
+	        	        		<div class="gallery">
+	        	        		
+	        			        	<?php 
+	        					     $gallery_photo = get_sub_field('gallerie_photo_display');
+	        					     $i=0;
+	        			        	foreach( $gallery_photo as $gallery ): ?>
+	        			        		<?php $i++ ?>	
+	        			        	<div>
+
+	        			        		<div class="single_gallery gallery_<?php echo $i; ?>">  
+	        			        			<div class="gallery_content">
+	        			        				<h4 class="gallery_title"><?php echo $gallery['gallerie_name']; ?></h4>
+
+	        			        				<img src="<?php echo $gallery['gallerie_cover']['sizes']['medium_large']; ?>">
+	        			        			</div>  
+	        	
+	        			        			
+								        	<?php 
+								        	$pictures = get_sub_field('gallerie_photo');
+								        	if (($pictures) !=null ):	?>
+									        	<div class="column_picture">
+									        		<?php 		        	
+									        		foreach( $pictures as $picture ): ?>	        		   
+									        		        <img src="<?php echo $picture['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
+									        		<?php endforeach; ?>
+									        	</div>
+									        <?php endif; ?>
+	        			        		</div>
+	            			        <?php endforeach; ?>
+
+	            			        <div class="rsx_scx_block">
+	            			        	<p class="rsx_scx_title"><?php echo "Suivez-nous"; ?></p>
+            			        		<div class="rsx_scx_container">
+
+            			        			<div class="scx_link">
+            			        				<a href="<?php echo the_field('facebook_link', 'option'); ?>" target="_blank"><i class="icon-facebook"></i></a>
+    <!--         			        				<a href="<?php echo the_field('instagram_link', 'option'); ?>" target="_blank"><i class="icon-instagram"></i></a> -->
+            			        				<a href="<?php echo the_field('twitter_link', 'option'); ?>" target="_blank"><i class="icon-twitter"></i></a>
+            			        				<a href="<?php echo the_field('soundcloud_link', 'option'); ?>" target="_blank"><i class="icon-soundcloud"></i></a>
+            			        				<a href="<?php echo the_field('youtube_link', 'option'); ?>" target="_blank"><i class="icon-youtube"></i></a>
+
+            			        			</div>
+	            			
+	            			        		
+	            			        	</div>
+	            			        </div>
+	        	        		
+	        	        			</div>   
+		        	        	</div>  
+		        	        </div>
+						</div>
 
 
         <?php endif;
