@@ -1,0 +1,282 @@
+//LANDING
+
+.popin{
+	position:fixed;
+	top:-100%;
+	left:0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba($black, 0.9);
+	z-index: 100;
+	transition: all 0.4s ease-in;
+	&.visible{
+		top: 0;
+		transition: all 0.4s ease-in;
+
+	}
+}
+
+
+.presentation_container{
+	padding: 60px 0;
+	.presentation{
+		display: flex;
+		align-items: center;
+		.col-left{
+			flex:1
+		}
+		.col-right{
+			flex:2;
+			line-height: 30px;
+		}
+	}
+}
+
+.video_container{
+	background-color: $black;
+	padding: 60px 0;
+	.video{
+		position:relative;
+		.cover_container{
+			position:absolute;
+			top:0;
+			left:0;
+			width: 100%;
+			max-height: 658px;
+			overflow: hidden;
+			.video_hover{
+				background-color: rgba($black, 0.5);
+				width: 100%;
+				height:100%;
+				position: absolute;
+				transition: all 0.4s ease-in;
+				&:hover{
+					cursor:pointer;
+					background-color: rgba($black, 0.3);
+					transition: all 0.4s ease-in;
+				}
+			}
+			img{
+				width: 100%;
+			}
+		}
+		iframe{
+			width: 100%;
+		}
+	}
+}
+
+.dates_container{
+	color:$white;
+	text-transform: uppercase;
+	padding: 60px 0;
+	padding-bottom: 90px;
+	background-size: cover;
+	h2{
+		text-align: center;
+		margin-bottom: 100px;
+		font-size: 60px;
+		letter-spacing: 60px;
+		margin-top: 0;
+	}
+	ul{
+		display:flex;
+		li{
+			flex:1;
+			list-style-type:none;
+		}
+	}
+	.presentation{
+		font-size: 18px;
+		letter-spacing: 3px;
+	}
+}
+
+.band_presentation_container{
+	padding: 60px 0;
+	.band{
+		// display: flex;
+		justify-content: space-around;
+		.member{
+			position: relative;
+			color: $white;
+			width: 33.33%;
+			max-width: 333px;
+			height: 215px;
+			overflow: hidden;
+			display: inline-block;
+			&:hover{
+				cursor: pointer;
+			}
+			.member_infos{
+				position: absolute;
+				top: 0;
+				left:0;
+				width: 100%;
+				height: 100%;
+				z-index: 10;
+				&:before{
+					content:'';
+					position:absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 255px;
+					background-color: rgba($black, 0.5);
+					transition: all 0.4s ease-in;
+					z-index: -1;
+				}
+				&>div{
+					position: absolute;
+					font-size: 20px;
+					letter-spacing: 2px;
+					text-transform: uppercase;
+					line-height: 30px;
+					width: 100%;
+					text-align: center;
+					top: 50%;
+					left:50%;
+					transform: translateX(-50%) translateY(-50%);
+					opacity: 0;
+					transition: all 0.4s ease-in;
+				}
+			}
+			&:hover{
+				.member_infos{
+					&:before{
+						background-color: rgba(#5079bf, 0.8);
+						transition: all 0.6s ease-in;
+					}
+					&>div{
+						opacity:1;
+						transition: all 0.8s ease-in;
+
+					}
+
+				}
+
+			}
+			.member_picture{
+				position:absolute;
+				top: 0;
+				left:0;
+				width: 100%;
+				img{
+					width: 100%;
+				}
+			}
+
+		}
+	}
+	.slider_member{
+		position: fixed;
+		top: -100%;
+		left: 50%;    
+		width: 100%;
+		padding: 60px;	
+		max-width: 900px;
+		margin: 0 auto;
+		transform: translateX(-50%) translateY(-50%);
+		z-index: 1000;
+		transition: all 0.4s ease-in;
+
+		&.visible{
+			top:50%;
+			transition: all 0.4s ease-in;
+		}
+		.member{
+			width: 100%!important;
+			display: flex;
+			&:hover{
+				cursor: pointer;
+			}
+			.member_info,
+			.member_picture{
+				display: inline-block;
+				float:left;
+				flex:1;
+			}
+			.member_infos{
+				order:2;
+				color: $white;
+				background-color: $black;
+				width: 50%;
+				padding:30px;
+			}
+			.member_picture{
+				order:1;
+				max-width:500px;
+				img{
+					width: 100%;
+				}
+			}
+		}
+		.carousel-cell {
+		  width: 100%;
+		}
+		.flickity-page-dots{
+			bottom: 50px;
+			display: flex;
+			width: calc(100% - 120px);
+			.dot{
+				flex:1;
+				border-radius: 0;
+				margin: 0;
+				height: 4px;
+				background: $white;
+				opacity:0.4;
+				&.is-selected{
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+.album_display_container{
+	padding: 60px 0;
+	.single_album{
+		width: 100%;
+		display: flex;
+		.album_picture,
+		.album_infos{
+			display: inline-block;
+			float:left;
+		}
+		.album_infos{
+			box-sizing:border-box;
+			padding: 60px;
+			padding-top:0;
+			padding-bottom:0;
+			width: 60%;
+			&>div{
+				position: relative;
+				height: 100%;
+			}
+			.album_title{
+				font-size:50px;
+				margin-top: 0;
+				margin-bottom: 20px;
+				font-weight: 100;
+				letter-spacing: 5px;
+			}
+			.extract_album{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+			}
+			.album_description{
+				line-height: 30px;
+			}
+
+		}
+		.album_picture{
+			width: 40%;
+			text-align: center;
+			img{
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+//VARIABLE
+
+
+$black: #020202;
+$white: #fff;
+
+//GLOBAL STYLES
+
+
+body{
+	font-family: 'Inconsolata', courier, arial;
+}
+
+.container{
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+.cover_full_width{
+	background-size: cover;
+	height: 100%;
+}
+
+.container_full_page{
+	height: 100vh; 
+	width: 100vw;
+}
+
+.btn{
+	display: block;
+	border: 1px solid $black;
+	line-height: 40px;
+	font-size: 16px;
+	padding: 0 10px;
+	text-align: center;
+	width: 100%;
+	max-width: 180px;
+	margin: 40px auto;
+	background: transparent;
+	transition: all 0.4s ease-in;
+
+	&:hover{
+		border: 4px solid $black;
+		transition: all 0.4s ease-in;
+
+
+	}
+	a{
+		text-decoration: none;
+		color: $black;
+
+	}
+}
