@@ -20,6 +20,14 @@ body{
 .cover_full_width{
 	background-size: cover;
 	height: 100%;
+	position: relative;
+	img{
+		height: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 50%;
+	    transform: translateX(-50%);
+	}
 }
 
 .container_full_page{

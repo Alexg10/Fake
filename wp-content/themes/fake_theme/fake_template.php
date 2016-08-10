@@ -23,7 +23,8 @@ if( have_rows('fake_theme') ):
         	<?php $main_cover =  get_sub_field('landing_background')['url'];
         	?>
 			<div class="container_full_page">
-	        	<div class="cover_full_width" style="background-image: url('<?php echo $main_cover; ?>')" >
+	        	<div class="cover_full_width"  >
+	        		<img src="<?php echo $main_cover; ?>">
 	        	</div>
 			</div>
 
@@ -33,7 +34,7 @@ if( have_rows('fake_theme') ):
         		$presentation_img =  get_sub_field('presentation_image');
         	?>
     		<div class="container presentation_container">
-        		<div class="presentation">
+        		<div id="presentation" class="presentation">
         			<div class="col-left">
 						<img src="<?php echo $presentation_img['sizes']['large']; ?>">
         				
@@ -52,7 +53,7 @@ if( have_rows('fake_theme') ):
         	?>
         		<div class="video_container">
 	        		<div class="container">
-		        		<div class="video">
+		        		<div id="live" class="video">
 		        			<iframe  class="video_iframe" width="1170" height="658" src="<?php echo the_sub_field('video_link'); ?>" frameborder="0" allowfullscreen></iframe>
 		        			<div class="cover_container">
 		        				<div class="video_hover"></div>
@@ -67,7 +68,7 @@ if( have_rows('fake_theme') ):
 	        		$dates_img =  get_sub_field('dates_background')['url'];
 	        	?>
 	        	<div class="dates_container" style="background-image: url('<?php echo $dates_img; ?>')">
-		    		<div class="container">
+		    		<div id="dates" class="container">
 		    			<h2><?php the_sub_field('dates_title');?></h2>
 		        		<div class="presentation">
 		        		
@@ -96,13 +97,13 @@ if( have_rows('fake_theme') ):
     	        	?>
     	        	<div class="band_presentation_container" style="background-image: url('<?php echo $dates_img; ?>')">
     		    		<div class="container">
-    		        		<div class="band">
+    		        		<div id="band" class="band">
     		        		
     				        	<?php 
     						     $band_presentation = get_sub_field('band_member');			        	
     				        	foreach( $band_presentation as $member ): ?>	
     				        		<div class="member">    				        			
-    				        			<div class="member_infos">
+    				        			<div class="member_infos" data-color="<?php echo $member['member_color']; ?>">
     				        				<div>
     				        					<div><?php echo $member['member_name']; ?></div>
     				        					<div><?php echo $member['member_instru']; ?></div>
@@ -150,7 +151,7 @@ if( have_rows('fake_theme') ):
         	        <?php elseif( get_row_layout() == 'album_display' ): ?>
         	        	<div class="album_display_container" style="background-image: url('<?php echo $dates_img; ?>')">
         		    		<div class="container">
-        		        		<div class="albums">
+        		        		<div id="albums" class="albums">
         		        		
         				        	<?php 
         						     $album_presentation = get_sub_field('album_container');			        	
@@ -190,28 +191,43 @@ if( have_rows('fake_theme') ):
 	        					     $i=0;
 	        			        	foreach( $gallery_photo as $gallery ): ?>
 	        			        		<?php $i++ ?>	
-	        			        	<div>
+	        			        	
 
-	        			        		<div class="single_gallery gallery_<?php echo $i; ?>">  
+	        			        		<div class="single_gallery gallery_<?php echo $i; ?>" data-gallery="slider_gallery_<?php echo $i; ?>">  
 	        			        			<div class="gallery_content">
 	        			        				<h4 class="gallery_title"><?php echo $gallery['gallerie_name']; ?></h4>
 
 	        			        				<img src="<?php echo $gallery['gallerie_cover']['sizes']['medium_large']; ?>">
 	        			        			</div>  
 	        	
-	        			        			
-								        	<?php 
-								        	$pictures = get_sub_field('gallerie_photo');
-								        	if (($pictures) !=null ):	?>
-									        	<div class="column_picture">
-									        		<?php 		        	
-									        		foreach( $pictures as $picture ): ?>	        		   
-									        		        <img src="<?php echo $picture['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
-									        		<?php endforeach; ?>
-									        	</div>
-									        <?php endif; ?>
+
+		
 	        			        		</div>
 	            			        <?php endforeach; ?>
+
+	            			                	<?php 
+	            			        		     $gallery_photo = get_sub_field('gallerie_photo_display');
+	            			        		     $i=0;
+	            			                	foreach( $gallery_photo as $gallery ): ?>
+	            			                		<?php $i++ ?>	
+	    			        			<div class="slider_gallery slider_gallery_<?php echo $i ?>">
+			        			        	<?php 
+			        			        	$pictures = $gallery['gallerie_photo'];
+			        			        	if (($pictures) !=null ):	?>
+			        				        	<div class="column_picture">
+			        				        		<?php 		        	
+			        				        		foreach( $pictures as $picture ): ?>
+			        				        		<div class="img_container">
+			        				        		     <img src="<?php echo $picture['sizes']['medium_large']; ?>" alt="<?php echo $image['alt']; ?>" />
+			        				        			
+			        				        		</div>
+			        				        		<?php endforeach; ?>
+			        				        	</div>
+			        				        <?php endif; ?>
+	    			        				
+	    			        			</div>
+	            			        <?php endforeach; ?>
+
 
 	            			        <div class="rsx_scx_block">
 	            			        	<p class="rsx_scx_title"><?php echo "Suivez-nous"; ?></p>
@@ -224,16 +240,14 @@ if( have_rows('fake_theme') ):
             			        				<a href="<?php echo the_field('soundcloud_link', 'option'); ?>" target="_blank"><i class="icon-soundcloud"></i></a>
             			        				<a href="<?php echo the_field('youtube_link', 'option'); ?>" target="_blank"><i class="icon-youtube"></i></a>
 
-            			        			</div>
-	            			
+            			        			</div>           			
 	            			        		
 	            			        	</div>
-	            			        </div>
-	        	        		
-	        	        			</div>   
+	            			        </div>  
 		        	        	</div>  
 		        	        </div>
 						</div>
+
 
 
         <?php endif;
@@ -247,6 +261,13 @@ else :
 endif;
 
 ?>
+
+<div id="contact" class="contact_container">
+	<div class="container">
+		<h2>Contact</h2>
+		<?php echo do_shortcode( '[contact-form-7 id="92" title="Contact form 1"]'); ?>
+	</div>
+</div>
 
 
 
