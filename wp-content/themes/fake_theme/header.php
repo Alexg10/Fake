@@ -30,6 +30,7 @@
 
 	<header id="masthead" class="site-header" role="banner">
 
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'menu' ) ); ?>
 
 	</header><!-- #masthead -->
 

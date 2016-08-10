@@ -13,12 +13,32 @@
 
 	</div><!-- #content -->
 
+
+	
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'fake_theme' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'fake_theme' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'fake_theme' ), 'fake_theme', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+		<div class="container">
+   			<div class="col-left">
+   				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_white.png">
+   			</div>
+   			<div class="col-right">
+		        <div class="rsx_scx_block">
+		        	<p class="rsx_scx_title"><?php echo "Suivez-nous"; ?></p>
+	        		<div class="rsx_scx_container">
+
+	        			<div class="scx_link">
+	        				<a href="<?php echo the_field('facebook_link', 'option'); ?>" target="_blank"><i class="icon-facebook"></i></a>
+<!--         			        				<a href="<?php echo the_field('instagram_link', 'option'); ?>" target="_blank"><i class="icon-instagram"></i></a> -->
+	        				<a href="<?php echo the_field('twitter_link', 'option'); ?>" target="_blank"><i class="icon-twitter"></i></a>
+	        				<a href="<?php echo the_field('soundcloud_link', 'option'); ?>" target="_blank"><i class="icon-soundcloud"></i></a>
+	        				<a href="<?php echo the_field('youtube_link', 'option'); ?>" target="_blank"><i class="icon-youtube"></i></a>
+
+	        			</div>           			
+		        		
+		        	</div>
+		        </div>
+   			</div>
+		</div>
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
