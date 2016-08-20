@@ -9,10 +9,13 @@
     "grunt": "^1.0.0",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-express": "^1.4.1",
+    "grunt-parallel": "^0.5.1"
   },
   "dependencies": {
     "grunt-contrib-watch": "^1.0.0",
-    "normalize.scss": "^0.1.0"
+    "normalize.scss": "^0.1.0",
+    "ruby": "^0.6.1"
   }
 }

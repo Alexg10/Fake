@@ -24,7 +24,7 @@ if( have_rows('fake_theme') ):
         	?>
 			<div class="container_full_page">
 	        	<div class="cover_full_width"  >
-	        		<img src="<?php echo $main_cover; ?>">
+	        		<!-- <img src="<?php echo $main_cover; ?>"> -->
 	        	</div>
 			</div>
 
@@ -101,9 +101,9 @@ if( have_rows('fake_theme') ):
     		        		
     				        	<?php 
     						     $band_presentation = get_sub_field('band_member');			        	
-    				        	foreach( $band_presentation as $member ): ?>	
+    				        	foreach( $band_presentation as $member ): ?>
     				        		<div class="member">    				        			
-    				        			<div class="member_infos" data-color="<?php echo $member['member_color']; ?>">
+    				        			<div class="member_infos" data-color="<?php echo $member['member_color']; ?>" style="background-color:rgba(<?php echo $member['member_color']; ?>,0.8)">
     				        				<div>
     				        					<div><?php echo $member['member_name']; ?></div>
     				        					<div><?php echo $member['member_instru']; ?></div>
@@ -164,7 +164,7 @@ if( have_rows('fake_theme') ):
         				        					<div><h3 class="album_title"><?php echo $album['album_title']; ?></h3></div>
         				        					<div class="album_description"><?php echo $album['album_description']; ?></div>
         				        					<button class="album_btn btn">
-        				        						<a href="<?php echo $album['album_link']; ?>"><?php echo $album['album_link_txt']; ?>
+        				        						<a target="_blank" href="<?php echo $album['album_link']; ?>"><?php echo $album['album_link_txt']; ?>
         				        						</a>
         				        					</button>
         				        					<div>
